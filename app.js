@@ -40,9 +40,9 @@
 
 /** 购买链接：可在页面顶部配置，也可用 ?buy= 覆盖 */
 (function wireBuyLink() {
-  // ↓↓↓ 把这里换成你的付费页 / 发卡平台链接 ↓↓↓
-  // 本地联调：指向付费站（8766）；上线后改成你的付费页公网地址
-  const BUY_URL = 'http://127.0.0.1:8766/';
+  // ↓↓↓ 上线后换成你的付费页 / 发卡平台链接 ↓↓↓
+  // 当前指向官网获取说明区（付费站需你自己部署后替换）
+  const BUY_URL = '#get';
   const params = new URLSearchParams(location.search);
   const override = params.get('buy');
   const url = override || BUY_URL;
