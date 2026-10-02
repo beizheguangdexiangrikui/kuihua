@@ -2,8 +2,8 @@
   "version": "1.3.0",
   "notes": "大扩容版：插件清单从 157 条加到 321 条（新增 MCP 服务器 119 条 + 美化 45 条）。\n\n① 插件页大扩容：新增的 MCP 服务器全部来自 npm 官方索引里的真实包（有 npm 包名就能在应用内「一键安装」），并按活跃度筛过——超过一年没更新的不要；美化类是照 GitHub 官方数据按 star 排序挑的，每条都带真实 star 数。含小红车 Wallpaper Engine 生态（动态壁纸、导入/解包、替代品）。\n② 每条插件都有手写中文详介（能干什么 / 怎么装 / 什么时候用），不再是模板话术：全量 321/321 覆盖。\n③ 修复插件「详情」弹窗滑不动：长文被卡片摘要样式夹在 132px 且不能滚，改成弹窗专用样式；「查看预设正文」同一问题一并修好。\n④ 三家中转站补上取 key 的页面地址：API2D 走 Forward Key 页（官方文档说明该用 fk 开头的 Key，别用 API Token）、302.AI 走控制台、router.one 走 API 密钥页；顺带补上这三家缺失的服务商图标（此前图标一直回退成 🔌，内置自检长期报红）。\n⑤ 应用内更新打通：清单里没写安装包直链时，自动去 GitHub Releases 里找 .exe 资产当直链，「下载更新 → 重启更新」不再退化成「打开网页」。替换过程加了保险：小于 10MB 的包直接拒收（防把 HTML 报错页当更新包换上）、替换前备份旧 exe、替换失败或新文件大小异常自动回滚并仍启动旧版本、开发模式（electron.exe）拒绝更新。\n⑥ 新增两个可跑的检查：插件清单自检（条目完整性 / id 与仓库与 npm 包不重复 / 分类可解析 / 名称与详情齐全）与更新链路探测（版本比较断言 + 真实清单探测），`npm test` 即可跑。\n⑦ 插件、对话记录、API 配置都在 %APPDATA%\\葵花宝典 下，换 exe 不动它们——更新不会丢配置。",
   "url": "https://lyt19202285014-afk.github.io/kuihua/",
-  "downloadUrl": "https://github.com/lyt19202285014-afk/kuihua/releases/download/v1.3.0/kuihua-baodian--1.3.0-portable.exe",
-  "fileName": "kuihua-baodian--1.3.0-portable.exe",
+  "downloadUrl": "https://github.com/lyt19202285014-afk/kuihua/releases/download/v1.3.0/kuihua-baodian-1.3.0-portable.exe",
+  "fileName": "kuihua-baodian-1.3.0-portable.exe",
   "publishedAt": "2026-10-02",
   "getUrl": "https://specifications-universal-stud-patent.trycloudflare.com/"
 }
