@@ -44,16 +44,19 @@
 /**
  * 获取按钮跳转。
  *
+ * 页面上有**三处**会把人引向获取流程，必须全接上，否则只接中间那个的后果是：
+ * 用户点了首屏大按钮「获取软件」或导航里的「下载」，那俩还指着页内锚点 #get，
+ * 点了只是页面往下滚一点，看起来就是「没反应」。（这就是踩过的坑。）
+ *   · 导航「获取」是纯导航链接（没有 .btn 类），保留页内滚动，不改。
+ *   · 「下载」「获取软件」「前往获取」都带 .btn，全部改指真实地址。
+ *
  * 地址优先从 version.json 的 getUrl 读 —— 付费站是本地服务 + 临时隧道，
  * 地址会变。放进数据文件里，换地址时只改一处，不用动这里的代码。
  * 也支持在网址后加 ?buy=xxx 临时覆盖（方便自己测试）。
- *
- * 注意：这个函数会在运行时写 btn.href，所以 index.html 里那个 href 只算
- * 兜底值 —— 曾经因为这里写死 '#get'，把 HTML 里配好的地址顶掉了，点了没反应。
  */
-(async function wireGetButton() {
-  const btn = document.getElementById('btn-get');
-  if (!btn) return;
+(async function wireGetButtons() {
+  const btns = Array.from(document.querySelectorAll('#btn-get, a.btn[href="#get"]'));
+  if (!btns.length) return;
 
   const params = new URLSearchParams(location.search);
   let url = params.get('buy') || '';
@@ -67,15 +70,17 @@
         if (j && typeof j.getUrl === 'string' && /^https?:\/\//i.test(j.getUrl)) url = j.getUrl;
       }
     } catch {
-      /* 取不到就维持 HTML 里的兜底值 */
+      /* 取不到就什么都不做，按钮维持原来的页内锚点，不至于点坏 */
     }
   }
 
-  if (!url) return; // 保持 index.html 里写好的 href，不做任何覆盖
+  if (!url) return;
 
-  btn.href = url;
-  if (/^https?:\/\//i.test(url)) {
-    btn.target = '_blank';
-    btn.rel = 'noopener';
+  for (const b of btns) {
+    b.href = url;
+    if (/^https?:\/\//i.test(url)) {
+      b.target = '_blank';
+      b.rel = 'noopener';
+    }
   }
 })();
