@@ -2,7 +2,7 @@
 
 > **一个桌面端 AI 工作站**：接入 27 家大模型服务商，自定义系统提示一键注入，内置本地工具与插件生态，让模型真的能动手帮你干活。
 
-**官网**：https://lyt19202285014-afk.github.io/kuihua/
+**官网**：https://Beizheguangdexiangrikui.github.io/kuihua/
 
 ---
 
@@ -93,7 +93,7 @@
 
 ## 快速开始
 
-1. 到官网获取：https://lyt19202285014-afk.github.io/kuihua/ （本仓库只做介绍，不提供安装包直链）
+1. 到官网获取：https://Beizheguangdexiangrikui.github.io/kuihua/ （本仓库只做介绍，不提供安装包直链）
 2. 双击运行
 3. **模型接入** → 填 API 密钥 → 测连通
 4. **提示词模板** → 挑一份模板
