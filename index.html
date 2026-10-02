@@ -25,7 +25,7 @@
 
   <section class="hero" id="top">
     <div class="hero-inner">
-      <div class="badge">v1.1.0 · 2026-10 · Windows 绿色免安装</div>
+      <div class="badge">v1.2.0 · 2026-10 · Windows 绿色免安装</div>
       <h1>一个界面<br /><span class="grad">多模型 AI</span>直达</h1>
       <p class="lead">
         自定义系统提示一键注入到你自己的模型 API 调用里。
@@ -141,12 +141,13 @@
         <div class="dl-main">
           <div class="dl-icon">葵</div>
           <div class="dl-info">
-            <h3>葵花宝典 v1.1.0</h3>
+            <h3>葵花宝典 v1.2.0</h3>
             <p>一次购买，同一账号永久免费下载与更新。</p>
             <p class="hint">获取方式：点下方按钮前往授权页，付款后自动获取授权码。</p>
           </div>
           <!-- 把 href 换成你的付费页地址（发卡平台链接 / 私密页地址） -->
-          <a class="btn primary big" id="btn-get" href="#get">前往获取</a>
+          <a class="btn primary big" id="btn-get" href="http://127.0.0.1:8766/">前往获取</a>
+      <p class="hint small">按钮会跳转到获取页；若打不开，说明该页暂时不可访问，请稍后再试或联系作者。</p>
         </div>
         <p class="hint small">
           也可以联系作者购买（微信 lyt-060721 · QQ 2832928160）。
@@ -158,7 +159,7 @@
       <div class="update-panel" id="start" style="margin-top:20px">
         <h3>新手三步开始用</h3>
         <ol class="steps">
-          <li><strong>下载安装包</strong>：点上方「前往获取」购买，下载 <code>葵花宝典-1.1.0-portable.exe</code>，双击即用（免安装）</li>
+          <li><strong>下载安装包</strong>：点上方「前往获取」购买，下载 <code>葵花宝典-1.2.0-portable.exe</code>，双击即用（免安装）</li>
           <li><strong>拿一个 API 密钥</strong>：去任意一家模型平台注册并创建密钥（见下方入口），多数平台有免费额度</li>
           <li><strong>填入即可对话</strong>：打开应用 →「模型接入」→ 选服务商 → 粘贴密钥 →「测连通」出绿勾 → 回「对话」开始</li>
         </ol>
@@ -188,6 +189,19 @@
       <h2>更新日志</h2>
       <div class="changelog">
         <article class="log">
+          <div class="log-ver">v1.2.0 <span>2026-10-02</span></div>
+          <ul>
+            <li><b>助手预填</b>：在消息末尾插入一条「已同意」，绕过拒绝通路 —— 实测让 Claude 5.x 从 <b>0% 到 75%</b></li>
+            <li>修复双注入对强对齐模型的反作用（GPT 系实测 100%→75%），可按模型开关</li>
+            <li>新增「实测结论」面板：四档注入组合矩阵，实测与推断分开标注</li>
+            <li>新增「价格参考」：各家中转的汇率、最低充值、模型单价与一次体检的成本估算</li>
+            <li>8 款内置动态壁纸引擎；插件可直装从 36 增至 52，全部中文名并补详情</li>
+            <li>出图 / 出视频通道扩到 8 条内置 + 12 家自有 API，每条标注审核等级</li>
+            <li>平台审核 / 模型级拒答 / 模型不存在 三类错误分开识别，各自给出下一步动作</li>
+            <li>修好两份此前加载不了的模板；修 Claude Opus 5.5 的 temperature、Gemini 出图安全阈值等多项</li>
+          </ul>
+        </article>
+<article class="log">
           <div class="log-ver">v1.1.0 <span>2026-10-02</span></div>
           <ul>
             <li>指令检测输出百分比、评级、生效范围明细</li>
