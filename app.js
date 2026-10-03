@@ -42,35 +42,37 @@
 })();
 
 /**
- * 获取按钮跳转。
+ * 下载按钮接线。
  *
- * 页面上有**三处**会把人引向获取流程，必须全接上，否则只接中间那个的后果是：
- * 用户点了首屏大按钮「获取软件」或导航里的「下载」，那俩还指着页内锚点 #get，
- * 点了只是页面往下滚一点，看起来就是「没反应」。（这就是踩过的坑。）
- *   · 导航「获取」是纯导航链接（没有 .btn 类），保留页内滚动，不改。
- *   · 「下载」「获取软件」「前往获取」都带 .btn，全部改指真实地址。
+ * 页面上有**两处**会把人引向下载：首屏大按钮「免费下载」和获取区里的「下载安装包」。
+ * 两处都带 .btn，全部改指真实安装包地址；导航里那个「下载」是纯导航（.nav-cta），
+ * 保留页内滚动，落到获取区再点大按钮 —— 免得一进站就闷头下 96MB。
  *
- * 地址优先从 version.json 的 getUrl 读 —— 付费站是本地服务 + 临时隧道，
- * 地址会变。放进数据文件里，换地址时只改一处，不用动这里的代码。
- * 也支持在网址后加 ?buy=xxx 临时覆盖（方便自己测试）。
+ * 地址优先从 version.json 的 downloadUrl 读（发版脚本上传安装包后会自动写进去）；
+ * 读不到就维持 HTML 里写死的 Releases 页兜底，不至于点坏。
+ * 也支持在网址后加 ?dl=xxx 临时覆盖（方便自己测试）。
  */
-(async function wireGetButtons() {
-  const btns = Array.from(document.querySelectorAll('#btn-get, a.btn[href="#get"]'));
+(async function wireDownloadButtons() {
+  const btns = Array.from(
+    document.querySelectorAll('#btn-get, a.btn[href="#get"]:not(.nav-cta)'),
+  );
   if (!btns.length) return;
 
   const params = new URLSearchParams(location.search);
-  let url = params.get('buy') || '';
+  let url = params.get('dl') || '';
 
   if (!url) {
     try {
-      // no-store：换地址后立刻生效，别让浏览器缓存住旧地址
+      // no-store：换了安装包地址后立刻生效，别让浏览器缓存住旧地址
       const r = await fetch('version.json', { cache: 'no-store' });
       if (r.ok) {
         const j = await r.json();
-        if (j && typeof j.getUrl === 'string' && /^https?:\/\//i.test(j.getUrl)) url = j.getUrl;
+        if (j && typeof j.downloadUrl === 'string' && /^https?:\/\//i.test(j.downloadUrl)) {
+          url = j.downloadUrl;
+        }
       }
     } catch {
-      /* 取不到就什么都不做，按钮维持原来的页内锚点，不至于点坏 */
+      /* 取不到就什么都不做，按钮维持 HTML 里的兜底地址，不至于点坏 */
     }
   }
 

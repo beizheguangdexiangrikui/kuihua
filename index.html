@@ -25,21 +25,21 @@
 
   <section class="hero" id="top">
     <div class="hero-inner">
-      <div class="badge">v1.3.1 · 2026-10 · Windows 绿色免安装</div>
+      <div class="badge">v1.4.0 · 2026-10 · Windows 绿色免安装 · 免费下载</div>
       <h1>一个界面<br /><span class="grad">多模型 AI</span>直达</h1>
       <p class="lead">
         自定义系统提示一键注入到你自己的模型 API 调用里。
-        27 家服务商 · 三套协议 · 8 份提示词模板 · 321 个插件 · 指令遵循度检测。
+        27 家服务商 · 三套协议 · 8 份提示词模板 · 321 个插件 · 指令遵循度检测 · 省 token 模式。
       </p>
       <div class="hero-actions">
-        <a class="btn primary big" href="#get">获取软件</a>
+        <a class="btn primary big" href="#get">免费下载</a>
         <a class="btn ghost big" href="#features">看看能干什么</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><b>22</b><span>服务商</span></div>
-        <div class="stat"><b>7</b><span>提示词模板</span></div>
+        <div class="stat"><b>27</b><span>服务商</span></div>
+        <div class="stat"><b>8</b><span>提示词模板</span></div>
         <div class="stat"><b>10</b><span>内置工具</span></div>
-        <div class="stat"><b>127</b><span>插件入口</span></div>
+        <div class="stat"><b>321</b><span>插件入口</span></div>
       </div>
     </div>
   </section>
@@ -132,26 +132,27 @@
     </div>
   </section>
 
-  <!-- 获取：只放外链，不在 GitHub 存 exe / 收款码 / 密钥 -->
+  <!-- 获取：免费下载；少部分进阶功能在应用内解锁 -->
   <section class="section" id="get">
     <div class="section-inner">
-      <h2>获取软件</h2>
+      <h2>免费下载</h2>
       <p class="section-lead">Windows 10/11 · x64 · 绿色免安装 · 约 96 MB</p>
       <div class="download-box">
         <div class="dl-main">
           <div class="dl-icon">葵</div>
           <div class="dl-info">
-            <h3>葵花宝典 v1.3.1</h3>
-            <p>一次购买，同一账号永久免费下载与更新。</p>
-            <p class="hint">获取方式：点下方按钮前往授权页，付款后自动获取授权码。</p>
+            <h3>葵花宝典 v1.4.0</h3>
+            <p><b>免费下载，装好即用。</b>聊天、模型接入、自定义模板、插件市场、壁纸、出图——这些都一直免费。</p>
+            <p class="hint">
+              少部分进阶功能需要在应用内一次性解锁（20 元）：内置提示词模板、启用模板开关、指令检测。
+              下载后在应用左下角点「未激活」扫码即可。
+            </p>
           </div>
-          <!-- 把 href 换成你的付费页地址（发卡平台链接 / 私密页地址） -->
-          <a class="btn primary big" id="btn-get" href="https://talks-oil-ends-authorities.trycloudflare.com/">前往获取</a>
-      <p class="hint small">按钮会跳转到获取页；若打不开，说明该页暂时不可访问，请稍后再试或联系作者。</p>
+          <a class="btn primary big" id="btn-get" href="https://github.com/beizheguangdexiangrikui/kuihua/releases/latest">下载安装包</a>
+          <p class="hint small">点按钮直接下载；若没反应，说明下载站暂时不可访问，请稍后再试或联系作者。</p>
         </div>
         <p class="hint small">
-          也可以联系作者购买（微信 lyt-060721 · QQ 2832928160）。
-          <br />本页不存放安装包与收款信息，全部交易在授权页完成。
+          联系作者：微信 lyt-060721 · QQ 2832928160
         </p>
       </div>
 
@@ -159,7 +160,7 @@
       <div class="update-panel" id="start" style="margin-top:20px">
         <h3>新手三步开始用</h3>
         <ol class="steps">
-          <li><strong>下载安装包</strong>：点上方「前往获取」购买，下载 <code>葵花宝典-1.3.0-portable.exe</code>，双击即用（免安装）</li>
+          <li><strong>下载安装包</strong>：点上方「下载安装包」，下载 <code>kuihua-1.4.0-portable.exe</code>，双击即用（免安装）</li>
           <li><strong>拿一个 API 密钥</strong>：去任意一家模型平台注册并创建密钥（见下方入口），多数平台有免费额度</li>
           <li><strong>填入即可对话</strong>：打开应用 →「模型接入」→ 选服务商 → 粘贴密钥 →「测连通」出绿勾 → 回「对话」开始</li>
         </ol>
@@ -188,6 +189,20 @@
     <div class="section-inner">
       <h2>更新日志</h2>
       <div class="changelog">
+        <article class="log">
+          <div class="log-ver">v1.4.0 <span>2026-10-03</span></div>
+          <ul>
+            <li><b>免费下载 + 应用内解锁</b>：安装包免费拿，少部分进阶功能（内置模板 / 启用模板开关 / 指令检测）在应用内 20 元解锁，自定义模板与聊天永久免费</li>
+            <li><b>省 token 模式</b>：长会话只发最近若干条，更早的自动省略；模板可只注入一次。本地裁剪，不额外花钱</li>
+            <li>会话变长时输入区会提醒「越聊越贵」，并给一键「开启省 token 模式 / 新开会话」</li>
+            <li>激活窗显示<b>本机型号</b>与设备码，激活码绑定设备，换机需重新生成</li>
+            <li>修复：文件和照片<b>拖进对话框没反应</b>（此前完全没实现拖放）</li>
+            <li>修复：附件图片缩略图不显示（页面 CSP 未允许读本地图片）</li>
+            <li>修复：消息列表<b>往上滚不动</b>（生成时被强制滚到底，且带平滑滚动动画）</li>
+            <li>修复：「实测结论」「一键跑全部服务商」「价格参考」「壁纸选择」「插件 npm 安装」等按钮点击报错</li>
+          </ul>
+        </article>
+
         <article class="log">
           <div class="log-ver">v1.3.1 <span>2026-10-03</span></div>
           <ul>
