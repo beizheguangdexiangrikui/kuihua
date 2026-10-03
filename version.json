@@ -1,8 +1,8 @@
 {
-  "version": "1.4.1",
-  "notes": "1.4.1：付款 → 发码全自动化，买家什么都不用做。\n\n🚀 自动收码解锁（新增）\n① 买家付完款在应用里点「我已付款，通知作者」后，应用会自动等待作者发码 —— 收到就自动解锁，不用粘码、不用留联系方式、不用加好友。\n② 作者把激活码发到该设备的专属取码通道，应用几秒内自动拿到并验签；签名里绑定了设备码，别人就算读到这串码，在别的机器上也用不了。\n③ 激活窗打开时就会自动轮询，付过款的买家重开应用也能自动解锁；另有「我已经付过款了，等作者发码」按钮可手动触发。\n\n🔧 配套工具（作者侧）\n④ 新增一键发码：tools/发激活码.cmd —— 双击、粘贴买家设备码、回车，自动生成激活码并发出，同时复制到剪贴板、记一条发码记录。\n\n其余功能与 1.4.0 相同（应用内解锁、省 token 模式、附件拖放、消息滚动修复等）。",
+  "version": "1.4.2",
+  "notes": "1.4.2：Claude 防封（降低触发风控的概率）。\n\n🛡️ Claude 防封（新增）\n① 修复请求指纹：以前发给 Anthropic 的请求**完全没有 User-Agent**（裸请求，在风控眼里很反常），现在带上稳定一致的中性 UA，与官方 SDK 一样只发必要的头。\n② 新增「出口 IP 自检」（设置页）：一键查询你实际从哪个 IP / 哪个国家出去（会走你配的代理，测的就是真实出口）。\n③ 地区风险自动判定：若出口在中国大陆 / 香港 / 俄罗斯等 Anthropic 不提供服务或高风险地区，直接给出红字警告并提示挂固定地区代理 —— 用这些地区的 IP 直连调 Claude 是封号首因。\n\n⚠️ 说清楚边界：没有任何客户端能保证「不被封」。封号由 Anthropic 服务端判定，看出口 IP 地区、内容合规、请求频率/模式、支付方式。应用能做的是把「本可避免的信号」消掉，显著降低触发概率，不是免疫。\n\n📌 用户自查清单（最容易被封的四件事）\n· 国内 IP 直连 Anthropic（用设置页的出口自检确认）\n· 同一个 key 多人共用，或 IP 一会儿国内一会儿国外 —— 典型的共享/转售特征\n· 短时间高频发违反其使用政策的内容\n· 用虚拟卡 / 异常支付方式开通\n\n其余功能与 1.4.1 相同。",
   "url": "https://Beizheguangdexiangrikui.github.io/kuihua/",
-  "downloadUrl": "https://github.com/beizheguangdexiangrikui/kuihua/releases/download/v1.4.1/kuihua-baodian-1.4.1-portable.exe",
-  "fileName": "kuihua-baodian-1.4.1-portable.exe",
+  "downloadUrl": "https://github.com/beizheguangdexiangrikui/kuihua/releases/download/v1.4.2/kuihua-baodian-1.4.2-portable.exe",
+  "fileName": "kuihua-baodian-1.4.2-portable.exe",
   "publishedAt": "2026-10-03"
 }
