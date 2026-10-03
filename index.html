@@ -1,295 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>葵花宝典 · 多模型 AI 效率客户端</title>
-  <meta name="description" content="葵花宝典：多模型直连客户端，提示词模板一键注入、流式对话、插件扩展、指令遵循度检测。Windows 绿色免安装。" />
-  <meta name="keywords" content="AI客户端,多模型,提示词,DeepSeek,Claude,Gemini,效率工具" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>葵花宝典 · 已迁移到 GitHub</title>
+<meta name="description" content="葵花宝典已迁移到 GitHub：功能介绍看仓库主页，安装包在 Releases 直接下载。" />
+<meta http-equiv="refresh" content="0; url=https://github.com/beizheguangdexiangrikui/kuihua/releases/latest" />
+<link rel="canonical" href="https://github.com/beizheguangdexiangrikui/kuihua" />
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+         background: #0f1115; color: #e6e9f0;
+         font-family: "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif; }
+  .box { text-align: center; padding: 32px; }
+  h1 { font-size: 20px; margin: 0 0 10px; }
+  p { color: #98a2b8; margin: 0 0 18px; }
+  a { color: #5aa9ff; }
+  .btn { display: inline-block; margin: 6px; padding: 10px 18px; border-radius: 10px;
+         background: #5aa9ff; color: #08121f; text-decoration: none; font-weight: 600; }
+  .ghost { background: transparent; color: #5aa9ff; border: 1px solid #2a3550; }
+</style>
 </head>
 <body>
-  <header class="nav">
-    <a class="brand" href="#top">
-      <span class="logo">葵</span>
-      <span class="brand-name">葵花宝典</span>
-    </a>
-    <nav class="nav-links">
-      <a href="#features">功能</a>
-      <a href="#tools">内置工具</a>
-      <a href="#get">获取</a>
-      <a href="#changelog">更新</a>
-    </nav>
-    <a class="btn primary nav-cta" href="#get">下载</a>
-  </header>
-
-  <section class="hero" id="top">
-    <div class="hero-inner">
-      <div class="badge">v1.4.0 · 2026-10 · Windows 绿色免安装 · 免费下载</div>
-      <h1>一个界面<br /><span class="grad">多模型 AI</span>直达</h1>
-      <p class="lead">
-        自定义系统提示一键注入到你自己的模型 API 调用里。
-        27 家服务商 · 三套协议 · 8 份提示词模板 · 321 个插件 · 指令遵循度检测 · 省 token 模式。
-      </p>
-      <div class="hero-actions">
-        <a class="btn primary big" href="#get">免费下载</a>
-        <a class="btn ghost big" href="#features">看看能干什么</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><b>27</b><span>服务商</span></div>
-        <div class="stat"><b>8</b><span>提示词模板</span></div>
-        <div class="stat"><b>10</b><span>内置工具</span></div>
-        <div class="stat"><b>321</b><span>插件入口</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section score-section">
-    <div class="section-inner">
-      <h2>指令遵循度检测 · 一眼看懂生效多少</h2>
-      <p class="section-lead">四个探针依次发出去，按可观察特征判定，输出百分比、评级与生效范围。</p>
-      <div class="score-card">
-        <div class="score-ring">
-          <svg viewBox="0 0 120 120" aria-hidden="true">
-            <circle cx="60" cy="60" r="52" class="ring-bg"></circle>
-            <circle cx="60" cy="60" r="52" class="ring-fg" id="ring-fg"></circle>
-          </svg>
-          <div class="ring-text">
-            <b id="ring-pct">75%</b>
-            <span id="ring-grade">大部生效</span>
-          </div>
-        </div>
-        <div class="score-detail">
-          <h3>生效范围</h3>
-          <ul class="scope-list">
-            <li class="ok">✓ 口令回执</li>
-            <li class="bad">✗ 免责回避</li>
-            <li class="ok">✓ 说教过滤</li>
-            <li class="ok">✓ 直接给出内容</li>
-          </ul>
-          <p class="hint">评级：完全生效 / 大部生效 / 部分生效 / 轻微生效 / 未生效</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="features">
-    <div class="section-inner">
-      <h2>核心功能</h2>
-      <p class="section-lead">从接入密钥到自定义对话，一条流水线走完。</p>
-      <div class="grid">
-        <article class="card">
-          <div class="card-ico">⚡</div>
-          <h3>提示词模板注入</h3>
-          <p>8 份内置模板（通用助手 / 编码 / 写作 / 角色 / 分析…），一键作为 system 注入，可编辑可还原。</p>
-        </article>
-        <article class="card">
-          <div class="card-ico">🔌</div>
-          <h3>27 家服务商</h3>
-          <p>DeepSeek / OpenAI / Claude / Gemini / 通义 / Kimi / 智谱 / 硅基流动 / OpenRouter / 小米 MiMo 等。</p>
-        </article>
-        <article class="card">
-          <div class="card-ico">🧪</div>
-          <h3>四探针指令检测</h3>
-          <p>口令回执、免责过滤、冗余说教、执行力四路探针，输出生效百分比、评级与范围明细。</p>
-        </article>
-        <article class="card">
-          <div class="card-ico">🧰</div>
-          <h3>10 个内置工具</h3>
-          <p>阅读 / 写入 / 编辑 / 预览 / 终端 / 目录 / 打开应用 / 截图 / 联网搜索 / 抓网页。</p>
-        </article>
-        <article class="card">
-          <div class="card-ico">🎨</div>
-          <h3>黑白主题 + 皮肤</h3>
-          <p>深色 / 浅色 / 跟随系统，6 款美化皮肤。支持 MCP 插件一键安装、停用、卸载。</p>
-        </article>
-        <article class="card">
-          <div class="card-ico">🔄</div>
-          <h3>检查更新</h3>
-          <p>关于页一键检查新版本，作者发布后自动提示升级。</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt" id="tools">
-    <div class="section-inner">
-      <h2>内置工具</h2>
-      <p class="section-lead">模型可以真的动手：读文件、改文件、跑命令、联网搜最新资料。</p>
-      <div class="tools">
-        <span class="tag">read_file 阅读</span>
-        <span class="tag">write_file 写入</span>
-        <span class="tag">edit_file 编辑</span>
-        <span class="tag">preview_file 预览</span>
-        <span class="tag">run_command 终端</span>
-        <span class="tag">list_dir 目录</span>
-        <span class="tag">open_app 打开</span>
-        <span class="tag">screenshot 截图</span>
-        <span class="tag ok">web_search 联网搜索</span>
-        <span class="tag ok">fetch_url 抓网页</span>
-      </div>
-      <p class="hint center">联网搜索按时间过滤（24 小时 / 本周 / 本月），优先返回最新结果。</p>
-    </div>
-  </section>
-
-  <!-- 获取：免费下载；少部分进阶功能在应用内解锁 -->
-  <section class="section" id="get">
-    <div class="section-inner">
-      <h2>免费下载</h2>
-      <p class="section-lead">Windows 10/11 · x64 · 绿色免安装 · 约 96 MB</p>
-      <div class="download-box">
-        <div class="dl-main">
-          <div class="dl-icon">葵</div>
-          <div class="dl-info">
-            <h3>葵花宝典 v1.4.0</h3>
-            <p><b>免费下载，装好即用。</b>聊天、模型接入、自定义模板、插件市场、壁纸、出图——这些都一直免费。</p>
-            <p class="hint">
-              少部分进阶功能需要在应用内一次性解锁（20 元）：内置提示词模板、启用模板开关、指令检测。
-              下载后在应用左下角点「未激活」扫码即可。
-            </p>
-          </div>
-          <a class="btn primary big" id="btn-get" href="https://github.com/beizheguangdexiangrikui/kuihua/releases/latest">下载安装包</a>
-          <p class="hint small">点按钮直接下载；若没反应，说明下载站暂时不可访问，请稍后再试或联系作者。</p>
-        </div>
-        <p class="hint small">
-          联系作者：微信 lyt-060721 · QQ 2832928160
-        </p>
-      </div>
-
-      <!-- 新手：怎么拿密钥、怎么开始 -->
-      <div class="update-panel" id="start" style="margin-top:20px">
-        <h3>新手三步开始用</h3>
-        <ol class="steps">
-          <li><strong>下载安装包</strong>：点上方「下载安装包」，下载 <code>kuihua-baodian-1.4.0-portable.exe</code>，双击即用（免安装）</li>
-          <li><strong>拿一个 API 密钥</strong>：去任意一家模型平台注册并创建密钥（见下方入口），多数平台有免费额度</li>
-          <li><strong>填入即可对话</strong>：打开应用 →「模型接入」→ 选服务商 → 粘贴密钥 →「测连通」出绿勾 → 回「对话」开始</li>
-        </ol>
-
-        <h3 style="margin-top:18px">去哪拿密钥（常用平台）</h3>
-        <div class="tools" style="margin:12px 0">
-          <a class="tag" href="https://platform.deepseek.com/api_keys" target="_blank" rel="noopener">DeepSeek 拿密钥</a>
-          <a class="tag" href="https://platform.moonshot.cn/console/api-keys" target="_blank" rel="noopener">Kimi / Moonshot</a>
-          <a class="tag" href="https://open.bigmodel.cn/usercenter/apikeys" target="_blank" rel="noopener">智谱 GLM</a>
-          <a class="tag" href="https://cloud.siliconflow.cn/account/ak" target="_blank" rel="noopener">硅基流动</a>
-          <a class="tag" href="https://platform.xiaomimimo.com/" target="_blank" rel="noopener">小米 MiMo</a>
-          <a class="tag" href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">OpenAI</a>
-          <a class="tag" href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">Anthropic Claude</a>
-          <a class="tag" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google Gemini</a>
-          <a class="tag" href="https://openrouter.ai/keys" target="_blank" rel="noopener">OpenRouter</a>
-        </div>
-        <p class="hint small">
-          应用内「模型接入」页每家都有「去哪拿密钥」「去充值」直达按钮，不用记地址。
-          密钥只保存在你本机（能用系统密钥库时自动加密），不会上传任何服务器。
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt" id="changelog">
-    <div class="section-inner">
-      <h2>更新日志</h2>
-      <div class="changelog">
-        <article class="log">
-          <div class="log-ver">v1.4.0 <span>2026-10-03</span></div>
-          <ul>
-            <li><b>免费下载 + 应用内解锁</b>：安装包免费拿，少部分进阶功能（内置模板 / 启用模板开关 / 指令检测）在应用内 20 元解锁，自定义模板与聊天永久免费</li>
-            <li><b>省 token 模式</b>：长会话只发最近若干条，更早的自动省略；模板可只注入一次。本地裁剪，不额外花钱</li>
-            <li>会话变长时输入区会提醒「越聊越贵」，并给一键「开启省 token 模式 / 新开会话」</li>
-            <li>激活窗显示<b>本机型号</b>与设备码，激活码绑定设备，换机需重新生成</li>
-            <li>修复：文件和照片<b>拖进对话框没反应</b>（此前完全没实现拖放）</li>
-            <li>修复：附件图片缩略图不显示（页面 CSP 未允许读本地图片）</li>
-            <li>修复：消息列表<b>往上滚不动</b>（生成时被强制滚到底，且带平滑滚动动画）</li>
-            <li>修复：「实测结论」「一键跑全部服务商」「价格参考」「壁纸选择」「插件 npm 安装」等按钮点击报错</li>
-          </ul>
-        </article>
-
-        <article class="log">
-          <div class="log-ver">v1.3.1 <span>2026-10-03</span></div>
-          <ul>
-            <li>仓库与官网搬到新账号：官网新地址 <b>https://Beizheguangdexiangrikui.github.io/kuihua/</b>（旧地址已失效）</li>
-            <li>应用内的「检查更新」地址已同步到新站点；<b>1.3.0 及更早版本请到新官网重新下载一次</b></li>
-            <li>功能与 1.3.0 相同，仅换了地址</li>
-          </ul>
-        </article>
-
-        <article class="log">
-          <div class="log-ver">v1.3.0 <span>2026-10-02</span></div>
-          <ul>
-            <li>插件清单 157 → <b>321 条</b>（新增 MCP 服务器 119 条 + 美化 45 条，含小红车 Wallpaper Engine 生态）</li>
-            <li>每条插件都有手写中文详介（能干什么 / 怎么装 / 什么时候用），全量 321/321 覆盖</li>
-            <li>修复插件「详情」弹窗滑不动（长文被卡片摘要样式夹在 132px）</li>
-            <li>三家中转站补上取 key 页面地址；顺带补上缺失的服务商图标</li>
-            <li>应用内更新支持自动从 Release 找安装包直链；替换前自动备份、失败自动回滚</li>
-          </ul>
-        </article>
-
-        <article class="log">
-          <div class="log-ver">v1.2.0 <span>2026-10-02</span></div>
-          <ul>
-            <li><b>助手预填</b>：在消息末尾插入一条「已同意」，绕过拒绝通路 —— 实测让 Claude 5.x 从 <b>0% 到 75%</b></li>
-            <li>修复双注入对强对齐模型的反作用（GPT 系实测 100%→75%），可按模型开关</li>
-            <li>新增「实测结论」面板：四档注入组合矩阵，实测与推断分开标注</li>
-            <li>新增「价格参考」：各家中转的汇率、最低充值、模型单价与一次体检的成本估算</li>
-            <li>8 款内置动态壁纸引擎；插件可直装从 36 增至 52，全部中文名并补详情</li>
-            <li>出图 / 出视频通道扩到 8 条内置 + 12 家自有 API，每条标注审核等级</li>
-            <li>平台审核 / 模型级拒答 / 模型不存在 三类错误分开识别，各自给出下一步动作</li>
-            <li>修好两份此前加载不了的模板；修 Claude Opus 5.5 的 temperature、Gemini 出图安全阈值等多项</li>
-          </ul>
-        </article>
-<article class="log">
-          <div class="log-ver">v1.1.0 <span>2026-10-02</span></div>
-          <ul>
-            <li>指令检测输出百分比、评级、生效范围明细</li>
-            <li>系统托盘、黑白主题、6 款美化皮肤</li>
-            <li>对话页实时 API 余额</li>
-            <li>应用内一键安装 / 停用 / 卸载插件</li>
-            <li>关于页「检查更新」</li>
-            <li>内置工具扩到 10 个（含联网搜索、抓网页）</li>
-          </ul>
-        </article>
-        <article class="log">
-          <div class="log-ver">v1.0.0 <span>2026-10-01</span></div>
-          <ul>
-            <li>首个版本：多模型直连、7 份提示词模板、指令检测、插件下载</li>
-            <li>截图与文件附件、四探针检测</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="brand">
-        <span class="logo">葵</span>
-        <div>
-          <b>葵花宝典</b>
-          <p>多模型 AI 效率客户端</p>
-        </div>
-      </div>
-      <div class="footer-meta">
-        <p>作者：背着光的向日葵</p>
-        <p>微信：lyt-060721 · QQ：2832928160</p>
-      </div>
-      <div class="disclaimer">
-        <h3>免责声明</h3>
-        <p>
-          本软件是一款<strong>多模型 API 效率工具</strong>，用于在用户自己的 API 账号上管理提示词模板、
-          进行流式对话与本地辅助操作。<strong>仅供个人学习、研究与提效使用。</strong>
-        </p>
-        <ul>
-          <li>使用者应遵守所在地法律法规，以及所对接模型服务商的服务条款与使用政策。</li>
-          <li>请勿用于任何违法违规、侵害他人权益或违反平台规则的用途。</li>
-          <li>提示词模板由使用者自行编写、自行负责。</li>
-          <li>因使用本软件产生的任何后果由使用者自行承担，与作者无关。</li>
-          <li>本软件与任何模型服务商均无官方关联；API 密钥仅保存在使用者本机。</li>
-        </ul>
-        <p class="hint small">下载或使用本软件，即视为已阅读并同意上述声明。</p>
-      </div>
-      <p class="copy">© 2026 葵花宝典 · 仅供学习研究使用</p>
-    </div>
-  </footer>
-
-  <script src="app.js"></script>
+  <div class="box">
+    <h1>葵花宝典已迁移到 GitHub</h1>
+    <p>正在跳转到下载页…如果没自动跳，点下面。</p>
+    <a class="btn" href="https://github.com/beizheguangdexiangrikui/kuihua/releases/latest">⬇️ 直接下载最新版</a>
+    <a class="btn ghost" href="https://github.com/beizheguangdexiangrikui/kuihua">看功能介绍</a>
+  </div>
+  <script>location.replace('https://github.com/beizheguangdexiangrikui/kuihua/releases/latest');</script>
 </body>
 </html>
