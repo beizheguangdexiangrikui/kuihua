@@ -1,10 +1,10 @@
-# Lumen · AI Armor Penetration agent效率工作站
+# Lumen · 破假AI Arm0r Penetration agent效率工作站
 
 > 本项目 2026-10 起由「葵花宝典」更名为 **Lumen**。
 > 改名只影响显示名、快捷方式与数据目录；功能、激活码、插件、对话记录都不受影响，
 > 老数据在首次启动时从 `%APPDATA%\葵花宝典` 自动迁移到 `%APPDATA%\Lumen`（只搬一次，旧目录保留作备份）。
 
-> Windows 桌面端 AI 破甲工作站：接入 27 家大模型服务商，自定义系统提示一键注入，内置本地工具与插件生态，让模型真的能动手干活；
+> Windows 桌面端 AI 工作站：接入 27 家大模型服务商，自定义系统提示一键注入，内置本地工具与插件生态，让模型真的能动手干活；
 > 还能用 9 个探针查出中转站有没有给你掉包。
 
 **[⬇️ 直接下载最新版](https://github.com/beizheguangdexiangrikui/kuihua/releases/latest)** · 绿色免安装 · 约 96 MB · Windows 10/11 x64
