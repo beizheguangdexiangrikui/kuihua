@@ -1,9 +1,9 @@
 {
-  "version": "2.0.4",
+  "version": "2.0.5",
   "minVersion": "2.0.4",
-  "notes": "Lumen 2.0.4：内置模板正文全面保护 + 强制升级\n\n🔒 模板正文不再能拿走\n· 界面上移除「查看全文 / 编辑 / 复制一份」，卡片不再印正文预览，右侧 system 预览与聊天气泡也只显示字数\n· 模板正文不再下发到界面层（原来激活后打开开发者工具就能整段读走），改由主进程在发请求前自己注入\n· 模板正文在安装包里加密存放（原来解包 app.asar 就能 grep 出全文）\n· 顺带修掉一个旧漏洞：未激活用户的双注入正文没被拦住\n\n⬆️ 强制升级\n· 低于 2.0.4 的版本打开时会被要求升级，旧版本安装包已全部撤下\n· 升级不丢数据：对话记录、密钥、插件、激活码都在本机\n\n（自定义模板不受影响：自己写的不受限，一切照旧。）",
+  "notes": "Lumen 2.0.5：修 6 个会咬人的问题（对话 + 数据安全）\n\n🔧 对话老出问题，这次挖到根上了\n① 历史重复导致的 400\n   工具链跑久之后，历史里可能出现同一个 tool_call_id 的两条结果，服务商直接\n   400：Duplicate value for 'tool_call_id'。表现是长会话跑到一半突然全崩 ——\n   做逆向、跑长任务的人最容易撞上。\n② Claude / Gemini：一轮并列调多个工具就 400\n   这类模型要求「我问你答」严格交替，而多条工具结果会被排成连续的 user，\n   对端报 roles must alternate。现在发之前会合并成一条。\n③ 工具被「悄悄摘掉」\n   原来只要报错里出现 tool 字样就判定「这家模型不支持工具调用」，然后把工具\n   关掉重试 —— 模型突然不调工具了，界面还给出一个错的原因。现在只认真点名\n   tools 字段的报错。\n④ Claude 开思考 + 输出上限设小 → 必然 400\n   思考预算的下限是 1024，但它必须小于输出上限；上限不超过 1024 时怎么算都\n   不合法。现在这种情况下不再发思考参数（宁可这一轮不思考，也不发必被拒的请求）。\n\n🛡 两个会静默毁数据的问题\n⑤ 改一家服务商的设置，会把别家的配置删掉\n   保存用的是浅合并，providers 整块被替换 —— 你给 A 站配的中转地址、\n   自定义请求头、拉取过的模型清单，在改 B 站的时候一起消失。\n   之后 A 站开始报 401/404，看起来像「密钥失效」，其实是配置被删了。\n⑥ 配置一次读失败，就把默认配置写回磁盘\n   窗口每次拖动/缩放都会重写一次配置。只要有一次读失败（杀软占用、权限抖动、\n   文件被截断），下一次窗口移动就会把默认值写进去 —— 密钥、激活码、自定义\n   模板全没了。现在配置读不出来时保存会被拒绝并提示，原文件自动备份。\n\n🌐 顺带\n⑦ 中转站回纯文本 502（Upstream service temporarily unavailable）现在也会被\n   认成网关故障并触发熔断；之前只认 HTML 错误页，用户会一直点重试猛撞一个\n   已经挂掉的网关。\n\n（升级不丢数据：对话记录、密钥、插件、激活码都在本机。）",
   "url": "https://Beizheguangdexiangrikui.github.io/kuihua/",
-  "downloadUrl": "https://github.com/beizheguangdexiangrikui/kuihua/releases/download/v2.0.4/Lumen-2.0.4-portable.exe",
-  "fileName": "Lumen-2.0.4-portable.exe",
+  "downloadUrl": "https://github.com/beizheguangdexiangrikui/kuihua/releases/download/v2.0.5/Lumen-2.0.5-portable.exe",
+  "fileName": "Lumen-2.0.5-portable.exe",
   "publishedAt": "2026-10-13"
 }
