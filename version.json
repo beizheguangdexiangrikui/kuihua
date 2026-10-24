@@ -1,9 +1,9 @@
 {
-  "version": "2.0.7",
+  "version": "2.0.8",
   "minVersion": "2.0.5",
-  "notes": "Lumen 2.0.7：插件市场大改版 + 子智能体团队 + 一堆顺手打磨\n\n🛒 插件下载页大改版\n  · 顶部新增「全部 / MCP 服务器 / Skill 能力插件」大标签，Skill 与 MCP 分开展示\n  · 新增「在线市场」双源：MCP 官方注册表（registry.modelcontextprotocol.io，实时在线、持续增长，带 npm 包的条目一键直装）+ GitHub 搜索（开源 MCP/Skill 仓库按 star 排序）\n  · 收录豆包/火山引擎与 OpenAI/ChatGPT 官方生态条目（Codex CLI 一键装、方舟/Connectors 官方入口），带品牌图标\n\n🤖 子智能体团队（设置 → 智能体团队）\n  · 预置代码审查员/测试工程师/资料研究员三个角色，可增删改\n  · 任务派给角色在后台跑，完成后结果自动回填当前会话\n\n✨ 粒子系统\n  · 外观面板新增粒子大小滑杆（0.5–3×）、颜色取色器（含跟随主题）、透明度（此前定义了但没上屏）\n  · 粒子可见度大幅提升：数量 120→320、雪更大更实，亮底雪花改淡蓝（之前肉眼基本看不见）\n\n🎨 界面打磨\n  · 激活窗改单列布局：收款码居中置顶，不再有大片留白；修了打开时被滚到底部输入框的 bug\n  · 侧栏导航紧凑化；弹窗入场动画；消息入场/流式打字机光标；危险确认按钮红渐变\n  · 壁纸亮度/对比度/饱和度滤镜；主题亮暗切换 cross-fade\n\n🛠 修复\n  · 弹窗打开时被滚到底部输入框（收款码被顶出视野）\n  · 设备码读取在 reg 被杀软拦截时崩溃\n  · MCP 注册表 CORS 拦截（改走主进程代理）\n\n（升级不丢数据：对话记录、密钥、插件、解锁状态都在本机。）",
+  "notes": "Lumen 2.0.8：修复「工具调用参数 path 必填」与命令秒失败\n\n🐞 修了什么\n  · 模型把 Windows 路径写成单反斜杠（如 C:////Users////...////bin）时，JSON 日志里 \\U \\D 是非法转义、\\b \\n 会变成控制字符 ——\n    参数解析失败后会退化成空参数，界面报「执行失败：参数 path 必填」/ run_command 几十毫秒 exit 1。\n  · 现在做了三层修复：\n      ① 参数容错解析（自动补反斜杠、去尾逗号、补齐被截断的 JSON）\n      ② 解析不了时如实告诉模型「路径请用正斜杠」，让它下一轮自己纠正\n      ③ 工具描述统一要求正斜杠 + 路径参数还原被吃掉的分隔符\n\n如果还遇到工具报错，请在对话里补一句「路径用正斜杠」，模型会立即改对。\n\n（升级不丢数据：对话记录、密钥、插件、解锁状态都在本机。）",
   "url": "https://Beizheguangdexiangrikui.github.io/kuihua/",
-  "downloadUrl": "https://github.com/beizheguangdexiangrikui/kuihua/releases/download/v2.0.7/Lumen-2.0.7-portable.exe",
-  "fileName": "Lumen-2.0.7-portable.exe",
-  "publishedAt": "2026-10-23"
+  "downloadUrl": "https://github.com/beizheguangdexiangrikui/kuihua/releases/download/v2.0.8/Lumen-2.0.8-portable.exe",
+  "fileName": "Lumen-2.0.8-portable.exe",
+  "publishedAt": "2026-10-24"
 }
