@@ -1,9 +1,9 @@
 {
-  "version": "2.0.8",
+  "version": "2.0.9",
   "minVersion": "2.0.5",
-  "notes": "Lumen 2.0.8：修复「工具调用参数 path 必填」与命令秒失败\n\n🐞 修了什么\n  · 模型把 Windows 路径写成单反斜杠（如 C:////Users////...////bin）时，JSON 日志里 \\U \\D 是非法转义、\\b \\n 会变成控制字符 ——\n    参数解析失败后会退化成空参数，界面报「执行失败：参数 path 必填」/ run_command 几十毫秒 exit 1。\n  · 现在做了三层修复：\n      ① 参数容错解析（自动补反斜杠、去尾逗号、补齐被截断的 JSON）\n      ② 解析不了时如实告诉模型「路径请用正斜杠」，让它下一轮自己纠正\n      ③ 工具描述统一要求正斜杠 + 路径参数还原被吃掉的分隔符\n\n如果还遇到工具报错，请在对话里补一句「路径用正斜杠」，模型会立即改对。\n\n（升级不丢数据：对话记录、密钥、插件、解锁状态都在本机。）",
+  "notes": "Lumen 2.0.9：网络断连自动重试（不再让你对着 read ECONNRESET 发呆）\n\n🔁 新增：网络瞬时错误自动重试\n  · ECONNRESET / ETIMEDOUT / socket hang up / net::ERR_CONNECTION_RESET 这类**连接被掐断**的错误，\n    现在会自动重试 2 次（1.2 秒、3.2 秒），并在界面上显示「第 1/2 次重试」的过程提示。\n  · 两次都失败才报错，错误里直接写清排查方向：VPN/代理（WARP 一类）线路不稳、中转掐长连接、防火墙拦截。\n  · 判定只认传输层特征（无 HTTP 状态码），401/429/400 这类业务错误不会被误判成网络问题。\n\n📎 附件修复：二进制文件（exe / zip / dll）现在会把**本地路径**一起发给模型\n  · 以前传 exe 附件，模型只会回「当前会话里没有可读取的附件」—— 因为正文里只有个文件名，\n    内容根本没传过去。现在会把完整路径写进消息，模型可以直接用工具（strings / 7z / dumpbin）分析。\n  · 图片附件同理：非视觉模型也能按路径用工具处理。\n\n🧩 内置插件全量体检（326 条逐条核验，修了 24 条）\n  · npm 包失效（装了必报错的）8 条 → 已换真实可用的包或改为官方仓库入口：\n    SQLite / PDF / PowerPoint 三条换成了真实存在的包，其余 5 条（mcpo、官方 git/fetch/time 等）\n    官方已归档，改为说明 + 官方仓库入口，不再给你一个点了就 404 的「一键安装」。\n  · GitHub 仓库失效 16 条 → 已清掉失效仓库字段（能一键装的照旧装，不能装的如实说明）。\n  · 现在清单里：npm 包 0 个失效、GitHub 仓库 0 个失效、重复 id 0、未知分类 0。\n  · 以后可随时自己在项目里跑 node tools/audit-plugins.mjs 复检。\n\n🐞 上一个版本（2.0.8）已修\n  · 模型写 Windows 路径用单反斜杠导致「参数 path 必填」/ run_command 秒失败\n\n📌 如果你仍频繁看到连接重置\n  1. 关掉 VPN / 代理（尤其 Cloudflare WARP）再试\n  2. 换一家服务商或换模型（中转站质量差异很大）\n  3. 「模型接入」里点「测连通」看这家是否稳定\n\n（升级不丢数据：对话记录、密钥、插件、解锁状态都在本机。）",
   "url": "https://Beizheguangdexiangrikui.github.io/kuihua/",
-  "downloadUrl": "https://github.com/beizheguangdexiangrikui/kuihua/releases/download/v2.0.8/Lumen-2.0.8-portable.exe",
-  "fileName": "Lumen-2.0.8-portable.exe",
+  "downloadUrl": "https://github.com/beizheguangdexiangrikui/kuihua/releases/download/v2.0.9/Lumen-2.0.9-portable.exe",
+  "fileName": "Lumen-2.0.9-portable.exe",
   "publishedAt": "2026-10-24"
 }
